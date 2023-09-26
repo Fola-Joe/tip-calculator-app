@@ -1,0 +1,59 @@
+.bill-h2 {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+.bill-input, .number-input, .custom-input {
+    font-family: 'Space Mono', monospace;
+    background-color: hsl(189, 41%, 97%);
+    border: none;
+    border-radius: 0.2rem;
+    padding: 0.5rem;
+    width: 95%;
+    text-align: right;
+    outline: none;
+}
+.bill-div {
+    position: relative;
+}
+.bill-div img {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+}
+
+.tip-h2 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+}
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.btn {
+    background-color: hsl(183, 100%, 15%);
+    font-size: 1.1rem;
+    color: hsl(0, 0%, 100%);
+    padding: 0.7rem;
+    text-align: center;
+    border-radius: 0.2rem;
+}
+.custom-input {
+    width: 90%;
+    padding: 0.5rem 1rem 0.5rem 0;
+    font-size: 1.1rem;
+}
+::placeholder {color: hsl(186, 14%, 43%);}
+
+.number-h2 {
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+}
+.number-input-div {position: relative;}
+.number-input-div img {
+    position: absolute;
+    top: 0.6rem;
+    left: 0.5rem;
+}

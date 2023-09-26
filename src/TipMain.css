@@ -1,0 +1,7 @@
+.TipMain {
+    background-color: hsl(0, 0%, 100%);
+    padding: 1.2rem;
+    border-radius: 0.75rem;
+    width: 100%;
+    max-width: 330px;
+}
