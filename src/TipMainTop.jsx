@@ -8,6 +8,7 @@ export default function TipMainTop() {
                 <input type="text"
                     aria-label="bill"
                     className="bill-input"
+                    placeholder="0"
                 />
                 <img src="./icon-dollar.svg" alt="dollar icon" />
             </div>
@@ -29,6 +30,7 @@ export default function TipMainTop() {
                 <input type="text"
                     aria-label="number"
                     className="number-input"
+                    placeholder="0"
                 />
                 <img src="./icon-person.svg" alt="person icon" />
             </div>

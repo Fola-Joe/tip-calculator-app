@@ -7,18 +7,23 @@
     background-color: hsl(189, 41%, 97%);
     border: none;
     border-radius: 0.2rem;
-    padding: 0.5rem;
+    padding: 0.4rem;
     width: 95%;
     text-align: right;
     outline: none;
+    color: hsl(183, 100%, 15%);
+    font-size: 1.1rem;
+}
+.bill-input::placeholder, .number-input::placeholder {
+    color: hsla(184, 14%, 56%, 0.8);
 }
 .bill-div {
     position: relative;
 }
 .bill-div img {
     position: absolute;
-    top: 0.5rem;
-    left: 0.5rem;
+    top: 0.7rem;
+    left: 0.7rem;
 }
 
 .tip-h2 {
@@ -39,13 +44,19 @@
     padding: 0.7rem;
     text-align: center;
     border-radius: 0.2rem;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.btn:hover {
+    background-color: hsla(172, 67%, 45%, 0.5);
+    color: hsl(183, 100%, 15%);
 }
 .custom-input {
     width: 90%;
     padding: 0.5rem 1rem 0.5rem 0;
     font-size: 1.1rem;
 }
-::placeholder {color: hsl(186, 14%, 43%);}
+.custom-input::placeholder {color: hsl(186, 14%, 43%);}
 
 .number-h2 {
     margin-bottom: 0.5rem;
@@ -54,6 +65,6 @@
 .number-input-div {position: relative;}
 .number-input-div img {
     position: absolute;
-    top: 0.6rem;
-    left: 0.5rem;
+    top: 0.7rem;
+    left: 0.7rem;
 }
