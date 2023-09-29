@@ -1,11 +1,12 @@
 import './TipMaintop.css';
 import { useState, useEffect } from 'react';
 import TipMainBottom from './TipMainBottom';
+import Button from './Button';
 
 export default function TipMainTop() {
 
     const [billAmount, setBillAmount] = useState('');
-    const [tipPercentage, setTipPercentage] = useState('');
+    const [tipPercentage, setTipPercentage] = useState(0);
     const [numPeople, setNumPeople] = useState('');
     const [tipAmountPerPerson, setTipAmountPerPerson] = useState(0);
     const [totalPerPerson, setTotalPerPerson] = useState(0);
@@ -35,8 +36,8 @@ export default function TipMainTop() {
     // to be paid per person
     const calculateTip = () => {
         if (billAmount && numPeople) {
-            const tip = (billAmount * (tipPercentage / 100));
-            const totalBill = billAmount ;
+            const tip = parseFloat(billAmount * (tipPercentage / 100));
+            const totalBill = tip + parseFloat(billAmount) ;
             setTipAmountPerPerson(tip / numPeople);
             setTotalPerPerson(totalBill / numPeople);
         }
@@ -45,7 +46,14 @@ export default function TipMainTop() {
     // Calculate the tip whenever bill amount, tip percentage, or number of people change
     useEffect(() => {
         calculateTip();
-    }, [billAmount, numPeople]);
+    }, [billAmount, tipPercentage, numPeople]);
+
+
+    // reset function
+    const reset = () => {
+        setTipAmountPerPerson(0);
+        setTotalPerPerson(0);
+    };
 
     return (
         <div>
@@ -61,11 +69,11 @@ export default function TipMainTop() {
             </div>
             <h2 className="tip-h2">Select Tip %</h2>
             <div className="buttons">
-                <div className="btn" value="5">5%</div>
-                <div className="btn">10%</div>
-                <div className="btn">15%</div>
-                <div className="btn">25%</div>
-                <div className="btn">50%</div>
+                <Button value={5} click={() => handleTipPercentageChange(5)} />
+                <Button value={10} click={() => handleTipPercentageChange(10)} />
+                <Button value={15} click={() => handleTipPercentageChange(15)} />
+                <Button value={25} click={() => handleTipPercentageChange(25)} />
+                <Button value={50} click={() => handleTipPercentageChange(50)} />
                 <div className="">
                     <input type="text"
                         placeholder="Custom"
@@ -84,7 +92,11 @@ export default function TipMainTop() {
                 <img src="./icon-person.svg" alt="person icon" />
             </div>
 
-            <TipMainBottom tipAmount={tipAmountPerPerson} totalAmount={totalPerPerson} />
+            <TipMainBottom
+                tipAmount={tipAmountPerPerson}
+                totalAmount={totalPerPerson}
+                reset={reset} 
+            />
         </div>
     )
 }

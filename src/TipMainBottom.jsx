@@ -1,6 +1,6 @@
 import './TipMainBottom.css';
 
-export default function TipMainBottom({ tipAmount, totalAmount }) {
+export default function TipMainBottom({ tipAmount, totalAmount, reset }) {
     return (
         <div className="TipMainBottom">
             <div className="tip-amount">
@@ -17,7 +17,7 @@ export default function TipMainBottom({ tipAmount, totalAmount }) {
                 </div>
                 <h4 className="figure-2">${totalAmount.toFixed(2)}</h4>
             </div>
-            <button className="reset-btn">Reset</button>
+            <button className="reset-btn" onClick={reset}>Reset</button>
         </div>
     )
 }
