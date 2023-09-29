@@ -10,6 +10,7 @@ export default function TipMainTop() {
     const [numPeople, setNumPeople] = useState('');
     const [tipAmountPerPerson, setTipAmountPerPerson] = useState(0);
     const [totalPerPerson, setTotalPerPerson] = useState(0);
+    const [selectedTipPercentage, setSelectedTipPercentage] = useState(0);
 
     // function to filter non-numeric characters and permit decimal point
     const numbersOnly = (e) => {
@@ -26,6 +27,7 @@ export default function TipMainTop() {
     // selecting tip percentage when custom buttons are clicked
     const handleTipPercentageChange = (percentage) => {
         setTipPercentage(percentage);
+        setSelectedTipPercentage(percentage);
     };
     // user inputting tip percentage
     const customTipPercentage = (e) => {
@@ -43,7 +45,7 @@ export default function TipMainTop() {
     const calculateTip = () => {
         if (billAmount && numPeople) {
             const tip = parseFloat(billAmount * (tipPercentage / 100));
-            const totalBill = tip + parseFloat(billAmount) ;
+            const totalBill = tip + parseFloat(billAmount);
             setTipAmountPerPerson(tip / numPeople);
             setTotalPerPerson(totalBill / numPeople);
         }
@@ -75,11 +77,26 @@ export default function TipMainTop() {
             </div>
             <h2 className="tip-h2">Select Tip %</h2>
             <div className="buttons">
-                <Button value={5} click={() => handleTipPercentageChange(5)} />
-                <Button value={10} click={() => handleTipPercentageChange(10)} />
-                <Button value={15} click={() => handleTipPercentageChange(15)} />
-                <Button value={25} click={() => handleTipPercentageChange(25)} />
-                <Button value={50} click={() => handleTipPercentageChange(50)} />
+                <Button value={5}
+                    click={() => handleTipPercentageChange(5)}
+                    selectedValue={selectedTipPercentage}
+                />
+                <Button value={10}
+                    click={() => handleTipPercentageChange(10)}
+                    selectedValue={selectedTipPercentage}
+                />
+                <Button value={15}
+                    click={() => handleTipPercentageChange(15)}
+                    selectedValue={selectedTipPercentage}
+                />
+                <Button value={25}
+                    click={() => handleTipPercentageChange(25)}
+                    selectedValue={selectedTipPercentage}
+                />
+                <Button value={50}
+                    click={() => handleTipPercentageChange(50)}
+                    selectedValue={selectedTipPercentage}
+                />
                 <div className="">
                     <input type="text"
                         placeholder="Custom"
@@ -102,7 +119,7 @@ export default function TipMainTop() {
             <TipMainBottom
                 tipAmount={tipAmountPerPerson}
                 totalAmount={totalPerPerson}
-                reset={reset} 
+                reset={reset}
             />
         </div>
     )

@@ -1,10 +1,17 @@
 import './TipMainTop.css';
 
-export default function Button({ value, click }) {
+export default function Button({ value, click, selectedValue }) {
+
+    const isActive = selectedValue === value;
+
+    const handleClick = () => {
+        click(value);
+      };
+
     return (
         <button
-            className="btn"
-            onClick={click}
+            onClick={handleClick}
+            className={`${isActive ? 'btn active' : 'btn'}`}
         >
             {value}%
         </button>

@@ -59,6 +59,11 @@
     font-size: 1.1rem;
 }
 .custom-input::placeholder {color: hsl(186, 14%, 43%);}
+/* css for buttons clicked */
+.active{
+    background-color: hsl(172, 67%, 45%);
+    color: hsl(183, 100%, 15%);
+}
 
 .number-h2 {
     margin-bottom: 0.5rem;
