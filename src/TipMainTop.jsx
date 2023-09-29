@@ -23,9 +23,15 @@ export default function TipMainTop() {
         numbersOnly(e);
     };
 
+    // selecting tip percentage when custom buttons are clicked
     const handleTipPercentageChange = (percentage) => {
         setTipPercentage(percentage);
     };
+    // user inputting tip percentage
+    const customTipPercentage = (e) => {
+        setTipPercentage(e.target.value);
+        numbersOnly(e);
+    }
 
     const handleNumPeopleChange = (e) => {
         setNumPeople(e.target.value);
@@ -78,6 +84,7 @@ export default function TipMainTop() {
                     <input type="text"
                         placeholder="Custom"
                         className="custom-input"
+                        onChange={customTipPercentage}
                     />
                 </div>
             </div>
