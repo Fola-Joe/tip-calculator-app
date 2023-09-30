@@ -59,63 +59,68 @@ export default function TipMainTop() {
 
     // reset function
     const reset = () => {
+        setBillAmount('');
+        setTipPercentage(0);
+        setSelectedTipPercentage(0);
+        setNumPeople('');
         setTipAmountPerPerson(0);
         setTotalPerPerson(0);
     };
 
     return (
-        <div>
-            <h2 className="bill-h2">Bill</h2>
-            <div className="bill-div">
-                <input type="text"
-                    aria-label="bill"
-                    className="bill-input"
-                    placeholder="0"
-                    onChange={handleBillAmountChange}
-                />
-                <img src="./icon-dollar.svg" alt="dollar icon" />
-            </div>
-            <h2 className="tip-h2">Select Tip %</h2>
-            <div className="buttons">
-                <Button value={5}
-                    click={() => handleTipPercentageChange(5)}
-                    selectedValue={selectedTipPercentage}
-                />
-                <Button value={10}
-                    click={() => handleTipPercentageChange(10)}
-                    selectedValue={selectedTipPercentage}
-                />
-                <Button value={15}
-                    click={() => handleTipPercentageChange(15)}
-                    selectedValue={selectedTipPercentage}
-                />
-                <Button value={25}
-                    click={() => handleTipPercentageChange(25)}
-                    selectedValue={selectedTipPercentage}
-                />
-                <Button value={50}
-                    click={() => handleTipPercentageChange(50)}
-                    selectedValue={selectedTipPercentage}
-                />
-                <div className="">
+        <div className="TipMainTop">
+            <section className="main-top">
+                <h2 className="bill-h2">Bill</h2>
+                <div className="bill-div">
                     <input type="text"
-                        placeholder="Custom"
-                        className="custom-input"
-                        onChange={customTipPercentage}
+                        aria-label="bill"
+                        className="bill-input"
+                        placeholder="0"
+                        onChange={handleBillAmountChange}
                     />
+                    <img src="./icon-dollar.svg" alt="dollar icon" />
                 </div>
-            </div>
-            <h2 className="number-h2">Number of People</h2>
-            <div className="number-input-div">
-                <input type="text"
-                    aria-label="number of people"
-                    className="number-input"
-                    placeholder="0"
-                    onChange={handleNumPeopleChange}
-                />
-                <img src="./icon-person.svg" alt="person icon" />
-            </div>
-
+                <h2 className="tip-h2">Select Tip %</h2>
+                <div className="buttons">
+                    <Button value={5}
+                        click={() => handleTipPercentageChange(5)}
+                        selectedValue={selectedTipPercentage}
+                    />
+                    <Button value={10}
+                        click={() => handleTipPercentageChange(10)}
+                        selectedValue={selectedTipPercentage}
+                    />
+                    <Button value={15}
+                        click={() => handleTipPercentageChange(15)}
+                        selectedValue={selectedTipPercentage}
+                    />
+                    <Button value={25}
+                        click={() => handleTipPercentageChange(25)}
+                        selectedValue={selectedTipPercentage}
+                    />
+                    <Button value={50}
+                        click={() => handleTipPercentageChange(50)}
+                        selectedValue={selectedTipPercentage}
+                    />
+                    <div className="">
+                        <input type="text"
+                            placeholder="Custom"
+                            className="custom-input"
+                            onChange={customTipPercentage}
+                        />
+                    </div>
+                </div>
+                <h2 className="number-h2">Number of People</h2>
+                <div className="number-input-div">
+                    <input type="text"
+                        aria-label="number of people"
+                        className="number-input"
+                        placeholder="0"
+                        onChange={handleNumPeopleChange}
+                    />
+                    <img src="./icon-person.svg" alt="person icon" />
+                </div>
+            </section>
             <TipMainBottom
                 tipAmount={tipAmountPerPerson}
                 totalAmount={totalPerPerson}

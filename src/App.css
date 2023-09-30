@@ -8,3 +8,10 @@
 .logo {
     margin: 2.5rem 0;
 }
+
+@media screen and (min-width: 900px) {
+    .logo {
+        margin-top: 7.5rem;
+        margin-bottom: 5rem;
+    }
+}

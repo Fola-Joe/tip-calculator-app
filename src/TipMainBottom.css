@@ -40,3 +40,17 @@
     /* opacity: 0.3; */
     filter: brightness(175%);
 }
+
+@media screen and (min-width: 880px) {
+    .TipMainBottom {
+        margin: 0;
+        padding: 3rem 2.5rem 2rem;
+        border-radius: 1rem;
+    }
+    .tip-total h2, .tip-amount h2 {
+        margin-bottom: 0.5rem;
+    }
+    .tip-amount {margin-bottom: 3rem;}
+    .tip-total {margin-bottom: 9rem;}
+    .reset-btn {margin-top: 0;}
+}
