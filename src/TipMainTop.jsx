@@ -1,4 +1,4 @@
-import './TipMaintop.css';
+import './TipMainTop.css';
 import { useState, useEffect } from 'react';
 import TipMainBottom from './TipMainBottom';
 import Button from './Button';
