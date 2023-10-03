@@ -6,22 +6,18 @@ import Button from './Button';
 export default function TipMainTop() {
 
     const [billAmount, setBillAmount] = useState('');
-    const [tipPercentage, setTipPercentage] = useState(0);
+    const [tipPercentage, setTipPercentage] = useState('');
     const [numPeople, setNumPeople] = useState('');
     const [tipAmountPerPerson, setTipAmountPerPerson] = useState(0);
     const [totalPerPerson, setTotalPerPerson] = useState(0);
     const [selectedTipPercentage, setSelectedTipPercentage] = useState(0);
-
-    // function to filter non-numeric characters and permit decimal point
-    const numbersOnly = (e) => {
+    
+    const handleBillAmountChange = (e) => {
+        // filter non-numeric characters and permit decimal point
         const input = e.target.value;
         const numbersOnly = input.replace(/[^0-9.]/g, '');
         e.target.value = numbersOnly;
-    }
-
-    const handleBillAmountChange = (e) => {
-        setBillAmount(e.target.value);
-        numbersOnly(e);
+        setBillAmount(numbersOnly);
     };
 
     // selecting tip percentage when custom buttons are clicked
@@ -31,13 +27,19 @@ export default function TipMainTop() {
     };
     // user inputting tip percentage
     const customTipPercentage = (e) => {
-        setTipPercentage(e.target.value);
-        numbersOnly(e);
+        // filter non-numeric characters and permit decimal point
+        const input = e.target.value;
+        const numbersOnly = input.replace(/[^0-9.]/g, '');
+        e.target.value = numbersOnly;
+        setTipPercentage(numbersOnly);
     }
 
     const handleNumPeopleChange = (e) => {
-        setNumPeople(e.target.value);
-        numbersOnly(e);
+        // filter non-numeric characters and permit decimal point
+        const input = e.target.value;
+        const numbersOnly = input.replace(/[^0-9.]/g, '');
+        e.target.value = numbersOnly;
+        setNumPeople(numbersOnly);
     };
 
     // function to calculate tip amount per person and total amount
@@ -60,7 +62,7 @@ export default function TipMainTop() {
     // reset function
     const reset = () => {
         setBillAmount('');
-        setTipPercentage(0);
+        setTipPercentage('');
         setSelectedTipPercentage(0);
         setNumPeople('');
         setTipAmountPerPerson(0);
@@ -76,6 +78,7 @@ export default function TipMainTop() {
                         aria-label="bill"
                         className="bill-input"
                         placeholder="0"
+                        value={billAmount}
                         onChange={handleBillAmountChange}
                     />
                     <img src="./icon-dollar.svg" alt="dollar icon" />
@@ -106,6 +109,7 @@ export default function TipMainTop() {
                         <input type="text"
                             placeholder="Custom"
                             className="custom-input"
+                            value={tipPercentage}
                             onChange={customTipPercentage}
                         />
                     </div>
@@ -116,6 +120,7 @@ export default function TipMainTop() {
                         aria-label="number of people"
                         className="number-input"
                         placeholder="0"
+                        value={numPeople}
                         onChange={handleNumPeopleChange}
                     />
                     <img src="./icon-person.svg" alt="person icon" />
