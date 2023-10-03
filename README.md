@@ -25,7 +25,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [GitHub repository](https://github.com/Fola-Joe/tip-calculator-app.git)
-- Live Site URL: [Live site]()
+- Live Site URL: [Live site](https://fola-joe.github.io/tip-calculator-app/)
 
 ## My process
 
