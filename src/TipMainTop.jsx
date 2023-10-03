@@ -11,7 +11,8 @@ export default function TipMainTop() {
     const [tipAmountPerPerson, setTipAmountPerPerson] = useState(0);
     const [totalPerPerson, setTotalPerPerson] = useState(0);
     const [selectedTipPercentage, setSelectedTipPercentage] = useState(0);
-    
+    const [numPeopleError, setNumPeopleError] = useState(false);
+
     const handleBillAmountChange = (e) => {
         // filter non-numeric characters and permit decimal point
         const input = e.target.value;
@@ -40,6 +41,12 @@ export default function TipMainTop() {
         const numbersOnly = input.replace(/[^0-9.]/g, '');
         e.target.value = numbersOnly;
         setNumPeople(numbersOnly);
+
+        if (parseFloat(numbersOnly) === 0) {
+            setNumPeopleError(true); // Set the error state
+        } else {
+            setNumPeopleError(false); // Clear the error state
+        }
     };
 
     // function to calculate tip amount per person and total amount
@@ -48,8 +55,13 @@ export default function TipMainTop() {
         if (billAmount && numPeople) {
             const tip = parseFloat(billAmount * (tipPercentage / 100));
             const totalBill = tip + parseFloat(billAmount);
-            setTipAmountPerPerson(tip / numPeople);
-            setTotalPerPerson(totalBill / numPeople);
+            if (numPeopleError === true) {
+                setTipAmountPerPerson(0);
+                setTotalPerPerson(0);
+            } else {
+                setTipAmountPerPerson(tip / numPeople);
+                setTotalPerPerson(totalBill / numPeople);
+            }
         }
     };
 
@@ -114,11 +126,15 @@ export default function TipMainTop() {
                         />
                     </div>
                 </div>
-                <h2 className="number-h2">Number of People</h2>
+                <div className="num-people-display">
+                    <h2 className="number-h2">Number of People</h2>
+                    {numPeopleError && <p className="error-message">Cannot be zero</p>}
+                </div>
+                {/* <h2 className="number-h2">Number of People</h2> */}
                 <div className="number-input-div">
                     <input type="text"
                         aria-label="number of people"
-                        className="number-input"
+                        className={`${numPeopleError ? 'number-input error' : 'number-input'}`}
                         placeholder="0"
                         value={numPeople}
                         onChange={handleNumPeopleChange}
